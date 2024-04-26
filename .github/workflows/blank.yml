@@ -19,16 +19,16 @@ jobs:
       # Log into Azure
     - uses: azure/login@v1
       with:
-        client-id: ${{ secrets.AZURE_CLIENT_ID }}
-        tenant-id: ${{ secrets.AZURE_TENANT_ID }}
-        subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+        client-id: dcf98850-cd8f-45f7-bf8f-c0b352582dd4
+        tenant-id: d700eded-6af7-4169-b164-1378aa1d2712
+        subscription-id: b3eaf5e1-2cd5-4783-8195-ad8415c15a06
         enable-AzPSSession: true
 
       # Deploy ARM template
     - name: Run ARM deploy
       uses: azure/arm-deploy@v1
       with:
-        subscriptionId: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
-        resourceGroupName: ${{ secrets.AZURE_RG }}
+        subscriptionId: b3eaf5e1-2cd5-4783-8195-ad8415c15a06
+        resourceGroupName: DevWorkshop
         template: ./InfrastructureAsCode/main.bicep
         parameters: environment=${{ env.targetEnv }}
